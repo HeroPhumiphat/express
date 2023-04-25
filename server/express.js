@@ -8,7 +8,9 @@ app.use(express.json());
 let fibonacciNo = [0]
 
 app.get('/', (req, res) => {
-  res.send('Welcome to test api find fibonacci no. by phumiphat.')
+  res.send(`<center>Test api<br>
+    find fibonacci no.<br>
+    by Phumiphat</center>`)
 })
 
 app.get('/fibonacci-no', (req, res) => {
@@ -19,6 +21,9 @@ app.get('/fibonacci-no/:state', (req, res) => {
   const state = req.params.state
   if (state === 'add' || state === 'del') {
     if (state === 'add') {
+      if (fibonacciNo.length === 0) {
+        fibonacciNo.push(0)
+      }
       if (fibonacciNo.length === 1) {
         fibonacciNo.push(1)
       } else {
@@ -26,12 +31,12 @@ app.get('/fibonacci-no/:state', (req, res) => {
         fibonacciNo.push(n)
       }
     } else if (state === 'del') {
-      if (fibonacciNo.length <= 2 && fibonacciNo > 1) {
+      if (fibonacciNo.length > 1) {
+        fibonacciNo.pop()
         fibonacciNo.pop()
       }
-      else if (fibonacciNo.length > 2) {
-        fibonacciNo.pop()
-        fibonacciNo.pop()
+      if (fibonacciNo.length < 1) {
+        fibonacciNo.push(0)
       }
     }
     res.status(200).json('update value success!')
