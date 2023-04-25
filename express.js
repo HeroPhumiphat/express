@@ -7,6 +7,10 @@ app.use(express.json());
 
 let fibonacciNo = [0]
 
+app.get('/', (req, res) => {
+  res.send('Welcome to test api find fibonacci no. by phumiphat.')
+})
+
 app.get('/fibonacci-no', (req, res) => {
   res.json(fibonacciNo)
 })
