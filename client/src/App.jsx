@@ -12,7 +12,6 @@ function App() {
     fetch('/api/fibonacci-no/')
       .then(res => res.json())
       .then (result => {
-        console.log(result)
         setFibonacciNo(result)
       })
   },[])
@@ -22,7 +21,6 @@ function App() {
         .then(res => res.json())
         .then (result => {
           setFibonacciNo(result)
-          console.log(result)
         })
   }, [count])
 
