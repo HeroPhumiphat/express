@@ -11,7 +11,7 @@ const fibonNoSlice = createSlice({
         },
         delValue: (state, action) => {
             if (state.value.length > 1) {
-                state.value.pop(action.payload)
+                state.value.pop()
             }
         }
     }
